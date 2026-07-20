@@ -2210,6 +2210,7 @@ function testpdef() {
 function add_setfile_persistance( file, placement )
 {
 	::titanSetFile[ file ] <- placement
+	printt(::titanSetFile)
 }
 
 InitPersistence()

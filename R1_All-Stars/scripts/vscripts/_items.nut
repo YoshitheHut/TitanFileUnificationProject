@@ -120,7 +120,9 @@ function main()
 	Globalize( GetDefaultAttachmentName )
 	Globalize( GetDefaultAttachmentIcon )
 
-	Globalize( CreateSetFileData )
+	Globalize(  CreateR1DeltaItems )
+
+	Globalize( CreateBlackMarketModdedItems )
 	Globalize( BlackMarket_ITEMCALL )
 
 	if ( developer() > 0 )
@@ -870,8 +872,12 @@ function CreateR1DeltaItems()
 	//CreateWeaponData( itemType.TITAN_ORDNANCE,		DEV_DISABLED,	0,		null, 	null, "mp_titanweapon_salvo_rockets_core_right", 		"../ui/menu/items/titanweapon_salvo_rockets",			"../ui/menu/items/ability_icons/salvo_rockets",		"../ui/menu/items/titanweapon_salvo_rockets", HideFromMenus )
 	CreateModData( itemType.TITAN_PRIMARY_MOD,		DEV_ENABLED,	0, 	null, 				1, 		"mp_titanweapon_shotgun",				"full_burst",				"Full-Burst",					"Allows firing every bullet in the magazine at a single trigger pull.",			"Allows firing every bullet in the magazine at a single trigger pull.",			-20, -5, 0, 10, 9, 		"../ui/menu/items/mod_icons/burst", 				"../ui/menu/items/mod_icons/burst" )
 	CreateWeaponData( itemType.TITAN_SPECIAL, 		DEV_ENABLED,	25,		null, 	null, "mp_weapon_mega5", 				"../ui/menu/items/mod_icons/afterburners",				"../ui/menu/items/mod_icons/afterburners", "../ui/menu/items/mod_icons/afterburners" )
-
+	CheckBlackMarketModdedTitans()
+}
 	//BlackmarketCreation
+
+function CheckBlackMarketModdedTitans()
+{
 	local loop_max = MasterModdedTitans.len()
 	for( local E = 0; E < loop_max; E++ )
 	{
@@ -882,6 +888,25 @@ function CreateR1DeltaItems()
 			BlackMarket_ITEMCALL( t_a.setfile, t_a.unlock_level, t_a.print_name, t_a.print_desc, t_a.titan_img_imc, t_a.titan_img_mcor, t_a.core_name, t_a.core_desc, t_a.core_img, t_a.stat_speed, t_a.stat_accel, t_a.stat_health, t_a.stat_boost_count )
 		}
 	}
+}
+
+function CreateBlackMarketModdedItems( modded_titan_place )
+{
+	/*
+	local loop_max = MasterModdedTitans.len()
+	for( local E = 0; E < loop_max; E++ )
+	{
+		if( loop_max > 0 )
+		{
+			local t_a = MasterModdedTitans[ E ]
+			
+			BlackMarket_ITEMCALL( t_a.setfile, t_a.unlock_level, t_a.print_name, t_a.print_desc, t_a.titan_img_imc, t_a.titan_img_mcor, t_a.core_name, t_a.core_desc, t_a.core_img, t_a.stat_speed, t_a.stat_accel, t_a.stat_health, t_a.stat_boost_count )
+		}
+	}
+	*/
+	local t_a = MasterModdedTitans[ modded_titan_place ]
+	printl( "ADDING NEW MODDED TITAN" )
+	BlackMarket_ITEMCALL( t_a.setfile, t_a.unlock_level, t_a.print_name, t_a.print_desc, t_a.titan_img_imc, t_a.titan_img_mcor, t_a.core_name, t_a.core_desc, t_a.core_img, t_a.stat_speed, t_a.stat_accel, t_a.stat_health, t_a.stat_boost_count )
 
 }
 
@@ -1642,6 +1667,8 @@ function CreateSetFileData( type, dev_enabled, levelReq, challengeReq, challenge
 		if( coreImage )
 			PrecacheHUDMaterial( coreImage )
 	}
+
+	printl(ref)
 
 	itemData[ref] <- {}
 	itemData[ref].type <- type
