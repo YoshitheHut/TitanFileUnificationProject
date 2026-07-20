@@ -75,6 +75,7 @@ function setUp( script_int )//I shoulda had this as a bool but eh.. NO, I got id
 	{
 		if( IsValid( MasterTitanTable ) )
 		{
+			local loop_max = MasterTitanTable.len()
 			for( local E = 0; E < loop_max; E++ )
 			{
 				local titan = MasterTitanTable[ E ]
