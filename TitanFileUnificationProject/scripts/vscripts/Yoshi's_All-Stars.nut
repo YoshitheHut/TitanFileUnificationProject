@@ -5,7 +5,6 @@ function main()
 	Globalize( MasterTitanCreation )
 	printl( "STAAAARRRRSSSS" )
 }
-main()
 
 function MasterTitanCreation( titan_array_name, setfile, type, emb_ove, unl_lv, p_name, p_desc, t_img_imc, t_img_mcor, c_name, c_desc, c_img, s_s, s_a, s_h, s_b, ref_rodeo, titan_mdl, hatch_mdl, rodeo_num, coop_img )
 {
@@ -42,3 +41,5 @@ function MasterTitanCreation( titan_array_name, setfile, type, emb_ove, unl_lv, 
 	printt( MasterTitanTable.titan_array_name )
 }
 //holy shit i almost had the entire alphabet [ u v w x y z ]
+
+main()
