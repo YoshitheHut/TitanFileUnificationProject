@@ -6,7 +6,7 @@ function main()
 }
 main()
 
-function MasterTitanCreation( titan_array_name, setfile, type, emb_ove, unl_lv, p_name, p_desc, t_img_imc, t_img_mcor, c_name, c_desc, c_img, s_s, s_a, s_h, s_b, ref_rodeo )
+function MasterTitanCreation( titan_array_name, setfile, type, emb_ove, unl_lv, p_name, p_desc, t_img_imc, t_img_mcor, c_name, c_desc, c_img, s_s, s_a, s_h, s_b, ref_rodeo, titan_mdl, hatch_mdl, rodeo_num, coop_img )
 {
 	local modded_titan_table = {}
 	
@@ -31,8 +31,13 @@ function MasterTitanCreation( titan_array_name, setfile, type, emb_ove, unl_lv, 
 
 	modded_titan_table.rodeo_ref_override <- ref_rodeo // p
 
+	modded_titan_table.titan_model <- titan_mdl // q
+	modded_titan_table.hatch_model <- hatch_mdl // r
+	modded_titan_table.rodeo_hitbox_number <- rodeo_num // s
+	modded_titan_table.coop_img <- coop_img // t
+
 	MasterTitanTable.titan_array_name <- modded_titan_table
 
 	printt( MasterTitanTable.titan_array_name )
 }
-//holy shit i almost had the entire alphabet [ q r s t u v w x y z ]
+//holy shit i almost had the entire alphabet [ u v w x y z ]
