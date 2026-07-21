@@ -14,6 +14,19 @@ function MasterTitanCreation( file, type, emb_ove, unl_lv, p_name, p_desc, t_img
 
 	printl( file )
 
+	local loop_max = MasterModdedTitans.len()
+	for( local E = 0; E < loop_max; E++ )
+	{
+		if( loop_max > 0 )
+		{
+			local t_a = MasterModdedTitans[ E ]
+
+			if( t_a.setfile == file )
+				return
+			
+		}
+	}
+
 	local titan_array_name = {}
 	
 	titan_array_name.setfile <- file//a

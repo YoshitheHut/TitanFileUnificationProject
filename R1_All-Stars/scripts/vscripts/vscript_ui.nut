@@ -2477,6 +2477,18 @@ function HasAnyNewItem( refType, parentRef = null )
 {
 	if (!("newMeta" in uiGlobal))
 		return false
+
+	/*local loop_max = MasterModdedTitans.len()
+	for( local E = 0; E < loop_max; E++ )
+	{
+		if( loop_max > 0 )
+		{
+			local t_a = MasterModdedTitans[ E ]
+			
+			if( refType == t_a.setfile )
+				return false
+		}
+	}*/
 	return (uiGlobal.newMeta[refType].newCount > 0)
 }
 
