@@ -58,4 +58,37 @@ function MasterTitanCreation( file, type, emb_ove, unl_lv, p_name, p_desc, t_img
 }
 //holy shit i almost had the entire alphabet [ u v w x y z ]
 
+function titan_dash_mathematics( requested_dashes )
+{
+	local dash_maxima = 100
+
+	local dash_drain = dash_maxima / requested_dashes
+
+	return dash_drain
+}
+
 main()
+
+/*
+
+"class_list"
+{
+	import "some set file.set"
+	import "some other set file.set"
+}
+
+seems to turn into
+
+"class_list"
+{
+	"titan_whatever"
+	{
+		some stuff and things
+	},
+	"titan_other_whatever"
+	{
+		some other stuff and things
+	}
+}
+
+*/
